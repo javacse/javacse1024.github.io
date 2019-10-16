@@ -8,17 +8,17 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>java实现聊天室 | javacse</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="##客户端 package cn.tedu.www.jsd1908.chat;import java.io.BufferedReader;import java.io.BufferedWriter;import java.io.IOException;import java.io.InputStream;import java.io.InputStreamReader;import java.io">
+  <meta name="description" content="##客户端">
 <meta property="og:type" content="article">
 <meta property="og:title" content="java实现聊天室">
-<meta property="og:url" content="http://yoursite.com/2019/10/12/java实现聊天室/index.html">
+<meta property="og:url" content="http://yoursite.com/2019/10/12/java实现聊天室的副本/index.html">
 <meta property="og:site_name" content="javacse">
-<meta property="og:description" content="##客户端 package cn.tedu.www.jsd1908.chat;import java.io.BufferedReader;import java.io.BufferedWriter;import java.io.IOException;import java.io.InputStream;import java.io.InputStreamReader;import java.io">
+<meta property="og:description" content="##客户端">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2019-10-12T15:55:01.814Z">
+<meta property="og:updated_time" content="2019-10-16T05:13:21.439Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="java实现聊天室">
-<meta name="twitter:description" content="##客户端 package cn.tedu.www.jsd1908.chat;import java.io.BufferedReader;import java.io.BufferedWriter;import java.io.IOException;import java.io.InputStream;import java.io.InputStreamReader;import java.io">
+<meta name="twitter:description" content="##客户端">
   
     <link rel="alternative" href="/atom.xml" title="javacse" type="application/atom+xml">
   
@@ -154,7 +154,7 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-java实现聊天室" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-java实现聊天室的副本" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
@@ -166,7 +166,7 @@
   
 
         
-        <a href="/2019/10/12/java实现聊天室/" class="archive-article-date">
+        <a href="/2019/10/12/java实现聊天室的副本/" class="archive-article-date">
   	<time datetime="2019-10-12T15:52:57.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-12</time>
 </a>
         
@@ -175,70 +175,12 @@
     <div class="article-entry" itemprop="articleBody">
       
         <p>##客户端</p>
-<p>package cn.tedu.<a href="http://www.jsd1908.chat" target="_blank" rel="noopener">www.jsd1908.chat</a>;<br>import java.io.BufferedReader;<br>import java.io.BufferedWriter;<br>import java.io.IOException;<br>import java.io.InputStream;<br>import java.io.InputStreamReader;<br>import java.io.OutputStream;<br>import java.io.OutputStreamWriter;<br>import java.io.PrintWriter;<br>import java.net.Socket;<br>import java.net.UnknownHostException;<br>import java.util.Scanner;</p>
-<p>public class Cilent {<br>    private  Socket socket;</p>
-<pre><code>public Cilent() {
-    System.out.println(&quot;--------------&quot;);
-    System.out.println(&quot;-正在连接服务器-&quot;);
-    try {
-        socket = new Socket(&quot;127.0.0.1&quot;,8087);
-        System.out.println(&quot;-连接服务器成功-&quot;);
-        System.out.println(&quot;--------------&quot;);
-    } catch (UnknownHostException e) {
-        e.printStackTrace();
-    } catch (IOException e) {
+<a id="more"></a>
 
-        e.printStackTrace();
-    }
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Cilent</span> </span>&#123;</span><br><span class="line"><span class="keyword">private</span> Socket socket;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="title">Cilent</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    System.out.println(<span class="string">"--------------"</span>);</span><br><span class="line">    System.out.println(<span class="string">"-正在连接服务器-"</span>);</span><br><span class="line">    <span class="keyword">try</span> &#123;</span><br><span class="line">        socket = <span class="keyword">new</span> Socket(<span class="string">"127.0.0.1"</span>,<span class="number">8087</span>);</span><br><span class="line">        System.out.println(<span class="string">"-连接服务器成功-"</span>);</span><br><span class="line">        System.out.println(<span class="string">"--------------"</span>);</span><br><span class="line">    &#125; <span class="keyword">catch</span> (UnknownHostException e) &#123;</span><br><span class="line">        e.printStackTrace();</span><br><span class="line">    &#125; <span class="keyword">catch</span> (IOException e) &#123;</span><br><span class="line"></span><br><span class="line">        e.printStackTrace();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">start</span><span class="params">()</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">try</span> &#123;</span><br><span class="line">        ServerHandler  serverhandler = <span class="keyword">new</span> ServerHandler();</span><br><span class="line">        Thread  tr = <span class="keyword">new</span> Thread();</span><br><span class="line">        tr.start();</span><br><span class="line"></span><br><span class="line">        OutputStream os =socket.getOutputStream();</span><br><span class="line">        OutputStreamWriter osw = <span class="keyword">new</span> OutputStreamWriter(os,<span class="string">"utf-8"</span>);</span><br><span class="line">        BufferedWriter bw = <span class="keyword">new</span> BufferedWriter(osw);</span><br><span class="line">        PrintWriter pw =<span class="keyword">new</span> PrintWriter(bw);</span><br><span class="line">        System.out.println(<span class="string">"发送消息:"</span>);</span><br><span class="line">        Scanner scan = <span class="keyword">new</span> Scanner(System.in);</span><br><span class="line">        <span class="keyword">while</span>(<span class="keyword">true</span>) &#123;</span><br><span class="line">            String str =scan.nextLine();</span><br><span class="line">            pw.println(str);</span><br><span class="line"></span><br><span class="line">        &#125;</span><br><span class="line">    &#125; <span class="keyword">catch</span> (IOException e) &#123;</span><br><span class="line"></span><br><span class="line">        e.printStackTrace();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">public</span>  <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String args[])</span> </span>&#123;</span><br><span class="line">    Cilent cilent = <span class="keyword">new</span> Cilent();</span><br><span class="line">    cilent.start();</span><br><span class="line">&#125;</span><br><span class="line"><span class="class"><span class="keyword">class</span>  <span class="title">ServerHandler</span> <span class="keyword">implements</span> <span class="title">Runnable</span></span>&#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            InputStream is = socket.getInputStream();</span><br><span class="line">            InputStreamReader isr = <span class="keyword">new</span> InputStreamReader(is,<span class="string">"utf-8"</span>);</span><br><span class="line">            BufferedReader br = <span class="keyword">new</span> BufferedReader(isr);</span><br><span class="line">            String message = <span class="keyword">null</span>;</span><br><span class="line">            <span class="keyword">while</span>((message=br.readLine())!=<span class="keyword">null</span>) &#123;</span><br><span class="line">                System.out.println(message);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125; <span class="keyword">catch</span> (IOException e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-}
-public void start() {
-
-    try {
-        ServerHandler  serverhandler = new ServerHandler();
-        Thread  tr = new Thread();
-        tr.start();
-
-        OutputStream os =socket.getOutputStream();
-        OutputStreamWriter osw = new OutputStreamWriter(os,&quot;utf-8&quot;);
-        BufferedWriter bw = new BufferedWriter(osw);
-        PrintWriter pw =new PrintWriter(bw);
-        System.out.println(&quot;发送消息:&quot;);
-        Scanner scan = new Scanner(System.in);
-        while(true) {
-            String str =scan.nextLine();
-            pw.println(str);
-
-        }
-    } catch (IOException e) {
-
-        e.printStackTrace();
-    }
-
-
-
-}
-public  static void main(String args[]) {
-    Cilent cilent = new Cilent();
-    cilent.start();
-}
-class  ServerHandler implements Runnable{
-    @Override
-    public void run() {
-        try {
-            InputStream is = socket.getInputStream();
-            InputStreamReader isr = new InputStreamReader(is,&quot;utf-8&quot;);
-            BufferedReader br = new BufferedReader(isr);
-            String message = null;
-            while((message=br.readLine())!=null) {
-                System.out.println(message);
-            }
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
-    }
-}</code></pre><h2 id><a href="#" class="headerlink" title="}"></a>}</h2><p>##友情参考<br><a href="http://www.javacse.top" target="_blank" rel="noopener">www.javacse.top</a></p>
+<hr>
+<p>##友情参考<br><a href="http://www.javacse.top" target="_blank" rel="noopener">www.javacse.top</a></p>
 
       
 
@@ -318,7 +260,7 @@ class  ServerHandler implements Runnable{
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/10/12/java实现聊天室/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/10/12/java实现聊天室的副本/" alt="微信分享二维码">
     </div>
 </div>
 

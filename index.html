@@ -152,19 +152,19 @@
           <div id="js-content" class="content-ll">
             
   
-    <article id="post-java实现聊天室" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-java实现聊天室的副本" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2019/10/12/java实现聊天室/">java实现聊天室</a>
+      <a class="article-title" href="/2019/10/12/java实现聊天室的副本/">java实现聊天室</a>
     </h1>
   
 
         
-        <a href="/2019/10/12/java实现聊天室/" class="archive-article-date">
+        <a href="/2019/10/12/java实现聊天室的副本/" class="archive-article-date">
   	<time datetime="2019-10-12T15:52:57.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-12</time>
 </a>
         
@@ -173,71 +173,9 @@
     <div class="article-entry" itemprop="articleBody">
       
         <p>##客户端</p>
-<p>package cn.tedu.<a href="http://www.jsd1908.chat" target="_blank" rel="noopener">www.jsd1908.chat</a>;<br>import java.io.BufferedReader;<br>import java.io.BufferedWriter;<br>import java.io.IOException;<br>import java.io.InputStream;<br>import java.io.InputStreamReader;<br>import java.io.OutputStream;<br>import java.io.OutputStreamWriter;<br>import java.io.PrintWriter;<br>import java.net.Socket;<br>import java.net.UnknownHostException;<br>import java.util.Scanner;</p>
-<p>public class Cilent {<br>    private  Socket socket;</p>
-<pre><code>public Cilent() {
-    System.out.println(&quot;--------------&quot;);
-    System.out.println(&quot;-正在连接服务器-&quot;);
-    try {
-        socket = new Socket(&quot;127.0.0.1&quot;,8087);
-        System.out.println(&quot;-连接服务器成功-&quot;);
-        System.out.println(&quot;--------------&quot;);
-    } catch (UnknownHostException e) {
-        e.printStackTrace();
-    } catch (IOException e) {
-
-        e.printStackTrace();
-    }
-
-}
-public void start() {
-
-    try {
-        ServerHandler  serverhandler = new ServerHandler();
-        Thread  tr = new Thread();
-        tr.start();
-
-        OutputStream os =socket.getOutputStream();
-        OutputStreamWriter osw = new OutputStreamWriter(os,&quot;utf-8&quot;);
-        BufferedWriter bw = new BufferedWriter(osw);
-        PrintWriter pw =new PrintWriter(bw);
-        System.out.println(&quot;发送消息:&quot;);
-        Scanner scan = new Scanner(System.in);
-        while(true) {
-            String str =scan.nextLine();
-            pw.println(str);
-
-        }
-    } catch (IOException e) {
-
-        e.printStackTrace();
-    }
-
-
-
-}
-public  static void main(String args[]) {
-    Cilent cilent = new Cilent();
-    cilent.start();
-}
-class  ServerHandler implements Runnable{
-    @Override
-    public void run() {
-        try {
-            InputStream is = socket.getInputStream();
-            InputStreamReader isr = new InputStreamReader(is,&quot;utf-8&quot;);
-            BufferedReader br = new BufferedReader(isr);
-            String message = null;
-            while((message=br.readLine())!=null) {
-                System.out.println(message);
-            }
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
-    }
-}</code></pre><h2 id><a href="#" class="headerlink" title="}"></a>}</h2><p>##友情参考<br><a href="http://www.javacse.top" target="_blank" rel="noopener">www.javacse.top</a></p>
-
+        
+          <a class="article-more-a" href="/2019/10/12/java实现聊天室的副本/#more">more >></a>
+        
       
 
       
@@ -249,7 +187,7 @@ class  ServerHandler implements Runnable{
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2019/10/12/java实现聊天室/">展开全文 >></a>
+          <a class="article-more-a" href="/2019/10/12/java实现聊天室的副本/">展开全文 >></a>
         </p>
       
 
