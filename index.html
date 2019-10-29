@@ -152,43 +152,39 @@
           <div id="js-content" class="content-ll">
             
   
-    <article id="post-使用hexo搭建自己的专属博客网站" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-2019-10-28-每日java必备算法(二)" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2019/10/16/使用hexo搭建自己的专属博客网站/">使用hexo搭建自己的专属博客网站</a>
+      <a class="article-title" href="/2019/10/28/2019-10-28-每日java必备算法(二)/">每日java必备算法(二)</a>
     </h1>
   
 
         
-        <a href="/2019/10/16/使用hexo搭建自己的专属博客网站/" class="archive-article-date">
-  	<time datetime="2019-10-16T13:04:00.703Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-16</time>
+        <a href="/2019/10/28/2019-10-28-每日java必备算法(二)/" class="archive-article-date">
+  	<time datetime="2019-10-27T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-28</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <hr>
-<p>1.准备工具  </p>
-<ul>
-<li><p>安装hexo框架    </p>
-</li>
-<li><p>安装node.js      <a href="https://nodejs.org/en/download/" target="_blank" rel="noopener">node.js下载地址</a></p>
-</li>
-<li><p>安装Git</p>
-</li>
-<li><p>一台运行Linux系统的电脑 , Windows运行cmd命令来使用命令(推荐使用Linux)</p>
-</li>
-<li><p>GitHub个人仓库</p>
-</li>
-<li><p>个人域名(非必须有)</p>
-        
-          <a class="article-more-a" href="/2019/10/16/使用hexo搭建自己的专属博客网站/#more">more >></a>
-        
+        <h1 id="插入排序—直接插入排序"><a href="#插入排序—直接插入排序" class="headerlink" title="插入排序—直接插入排序"></a>插入排序—直接插入排序</h1><p>对数组元素 3  4  5  2  6  1   7  9  8 进行排序,使用插入排序算法.</p>
+<h4 id="基本思想"><a href="#基本思想" class="headerlink" title="基本思想:"></a>基本思想:</h4><ul>
+<li>每一趟将一个待排序的记录，按其关键字的大小插入到已经排好序的一组记录的适当位置上，直到所有待排序记录全部插入为止 </li>
+</ul>
+<h4 id="图解"><a href="#图解" class="headerlink" title="图解"></a>图解</h4><p><img src="/img/cr.png" alt></p>
+<h4 id="实现步骤"><a href="#实现步骤" class="headerlink" title="实现步骤"></a>实现步骤</h4><ul>
+<li>从原数组第二元素开始遍历数组 为  i循环 如果当前 i 元素小于 i-1 位置上的元素 ,证明找到一个前面元素都小的值,进入j循环</li>
+<li>j循环从当前数组第一个元素开始遍历,遍历到 i 值的前一个, 如果 当前位置 小于 j 位置 上的元素 (为了找要插入的位置)插入该元素 进入 k 循环</li>
+<li>让 i - j之间数据向后移动,把数据插入空位置</li>
+</ul>
+<h4 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> day01;</span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> *   插入排序</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span> Administrator</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Test2</span> </span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">		<span class="comment">// 定义数组</span></span><br><span class="line">		<span class="keyword">int</span>[] data = &#123;<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">2</span>,<span class="number">6</span>,<span class="number">1</span>,<span class="number">7</span>,<span class="number">9</span>,<span class="number">8</span>&#125;;</span><br><span class="line">		<span class="comment">// 从数组第二位开始遍历</span></span><br><span class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>; i&lt;data.length; i++) &#123;</span><br><span class="line">			<span class="comment">// 如果第i位置上的元素小于前一个元素进入j循环,j循环为了寻找插入位置</span></span><br><span class="line">			<span class="keyword">if</span>(data[i]&lt;data[i-<span class="number">1</span>]) &#123;</span><br><span class="line">				<span class="keyword">for</span>(<span class="keyword">int</span> j = <span class="number">0</span>; j&lt;i; j++) &#123;</span><br><span class="line">					<span class="keyword">if</span>(data[i]&lt;data[j]) &#123;</span><br><span class="line">						<span class="keyword">int</span> temp = data[i];</span><br><span class="line">						<span class="comment">// i到j之间的数据向后移动,以空出j位置给temp</span></span><br><span class="line">						<span class="keyword">for</span>(<span class="keyword">int</span> k=i-<span class="number">1</span>; k&gt;=j;k--) &#123;</span><br><span class="line">							data[k+<span class="number">1</span>] = data[k];<span class="comment">// 数据向后移动</span></span><br><span class="line">						&#125;</span><br><span class="line">						data[j] = temp;</span><br><span class="line">                        <span class="keyword">break</span>;</span><br><span class="line">					&#125;</span><br><span class="line"></span><br><span class="line">				&#125;</span><br><span class="line"></span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i&lt;data.length; i++) &#123;</span><br><span class="line">			System.out.print(data[i]);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
       
 
       
@@ -201,7 +197,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">hexo 博客</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">算法</a>
         		</li>
       		
 		</ul>
@@ -211,7 +207,107 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2019/10/16/使用hexo搭建自己的专属博客网站/">展开全文 >></a>
+          <a class="article-more-a" href="/2019/10/28/2019-10-28-每日java必备算法(二)/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-2019-10-27-每日Java必备算法(一)" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/10/27/2019-10-27-每日Java必备算法(一)/">每日Java必备算法(一)</a>
+    </h1>
+  
+
+        
+        <a href="/2019/10/27/2019-10-27-每日Java必备算法(一)/" class="archive-article-date">
+  	<time datetime="2019-10-26T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-27</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="大数据运算"><a href="#大数据运算" class="headerlink" title="大数据运算"></a>大数据运算</h2><p>我们都知道运用java程序计算数学计算非常快,生活中都知道阶乘的概念吧!比如,计算 5! 用Java程序怎么实现呢?</p>
+<p>阶乘 —&gt; 1x2x3x4x5</p>
+<p>基本实现方法:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> num = <span class="number">1</span>;</span><br><span class="line"><span class="keyword">int</span> n = <span class="number">5</span>;</span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>; i&lt;= n; i++) &#123;</span><br><span class="line">   num *= i;</span><br><span class="line">&#125;</span><br><span class="line"> System.out.println(num);</span><br></pre></td></tr></table></figure>
+
+<p>但是这里有一个问题, 5的阶乘 int 类型还可以存下, 可以试试100的阶乘! 试过之后可以发现,控制台输出的是 0 ; 这是因为计算出的数值已经大于int 类型的取值范围啦!</p>
+<p>这才是100的阶乘 那要是更多数的阶乘呢!</p>
+<p>下面给大家介绍一个常用的算法</p>
+<h4 id="大数据运算-1"><a href="#大数据运算-1" class="headerlink" title="大数据运算"></a>大数据运算</h4><ul>
+<li>利用数组运算</li>
+</ul>
+<blockquote>
+<p>数组: 数组可以说是连续的可以存放数据的存储空间,每位数组元素都有对应的下标.这样一来用数组来实现数据的运算!</p>
+</blockquote>
+<ul>
+<li>实现方法 基本实现 526x89</li>
+</ul>
+<blockquote>
+<p>把要计算的乘数按位存放到数组中,把数组上的每位数据与要被计算的值相乘,之后采用进位和留位的方法来计算最后的值</p>
+</blockquote>
+<h5 id="图解如下"><a href="#图解如下" class="headerlink" title="图解如下"></a>图解如下</h5><p><img src="/img/dsj.png" alt></p>
+<h5 id="实现代码如下"><a href="#实现代码如下" class="headerlink" title="实现代码如下:"></a>实现代码如下:</h5><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 实现大数字运算算法</span></span><br><span class="line">		<span class="comment">// 定义原数组</span></span><br><span class="line">		<span class="keyword">int</span> n = <span class="number">89</span>;</span><br><span class="line">		<span class="keyword">int</span>[] data = <span class="keyword">new</span> <span class="keyword">int</span>[<span class="number">10</span>];</span><br><span class="line">		<span class="comment">//用数组计算526*89</span></span><br><span class="line">		<span class="comment">/**</span></span><br><span class="line"><span class="comment">		 *  把乘数放入数组各位</span></span><br><span class="line"><span class="comment">		 */</span></span><br><span class="line">		data[data.length-<span class="number">1</span>] = <span class="number">6</span>;</span><br><span class="line">		data[data.length-<span class="number">2</span>] = <span class="number">2</span>;</span><br><span class="line">		data[data.length-<span class="number">3</span>] = <span class="number">5</span>;</span><br><span class="line">		<span class="comment">/**</span></span><br><span class="line"><span class="comment">		 * 让各个数与被乘数相乘放入原数组</span></span><br><span class="line"><span class="comment">		 */</span></span><br><span class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i&lt;data.length;i++) &#123;</span><br><span class="line">			data[i]=data[i]*n;</span><br><span class="line">			<span class="comment">//  System.out.print(data[i]);</span></span><br><span class="line">		&#125;</span><br><span class="line">		<span class="comment">// 对每一位进位和留位</span></span><br><span class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> i = data.length-<span class="number">1</span>;i&gt;<span class="number">0</span>; i--) &#123;</span><br><span class="line">			<span class="comment">// 进位</span></span><br><span class="line">			data[i-<span class="number">1</span>] += data[i]/<span class="number">10</span>;</span><br><span class="line">			<span class="comment">// 留位</span></span><br><span class="line">			data[i]%=<span class="number">10</span>;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; data.length; i++) &#123;</span><br><span class="line">			System.out.print(data[i]);</span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure>
+
+<p>这样就可以计算非常大的运算啦!</p>
+<p>作者:javacse</p>
+<p>联系QQ: 主页QQ链接</p>
+<p>欢迎赞赏 </p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">算法</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/10/27/2019-10-27-每日Java必备算法(一)/">展开全文 >></a>
         </p>
       
 
@@ -400,7 +496,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">hexo 博客</a>
+                <a href="javascript:void(0)" class="js-tag color3">算法</a>
               </li>
             
             <div class="clearfix"></div>
