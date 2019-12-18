@@ -6,17 +6,22 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://javacse.top">
-  <title>Archives | javacse</title>
+  <title>SpringBoot 项目开发流程 | javacse</title>
   <meta name="generator" content="hexo-theme-yilia-plus">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
-  <meta property="og:type" content="website">
-<meta property="og:title" content="javacse">
-<meta property="og:url" content="http://javacse.top/archives/index.html">
+  <meta name="description" content="项目开发流程 数据库建库/建表,设计字段,字段数据类型以及约束,设置编码编码集 创建实体类,实现序列化接口,实体类中的属性与数据库字段相对应,提供get/set方法 连接数据库,编写配置文件 Dao层(持久层):编写接口和对应的配置文件,在接口中声明抽象方法,通过&amp;lt;mapper&amp;gt;标签的namespace属性指定对应关系,增删改查分别用&amp;lt;insert&amp;gt;,&amp;lt;delete&amp;">
+<meta name="keywords" content="SpringBoot">
+<meta property="og:type" content="article">
+<meta property="og:title" content="SpringBoot 项目开发流程">
+<meta property="og:url" content="http://javacse.top/2019/12/18/项目开发流程/index.html">
 <meta property="og:site_name" content="javacse">
+<meta property="og:description" content="项目开发流程 数据库建库/建表,设计字段,字段数据类型以及约束,设置编码编码集 创建实体类,实现序列化接口,实体类中的属性与数据库字段相对应,提供get/set方法 连接数据库,编写配置文件 Dao层(持久层):编写接口和对应的配置文件,在接口中声明抽象方法,通过&amp;lt;mapper&amp;gt;标签的namespace属性指定对应关系,增删改查分别用&amp;lt;insert&amp;gt;,&amp;lt;delete&amp;">
 <meta property="og:locale" content="en">
+<meta property="og:updated_time" content="2019-12-18T14:53:56.661Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="javacse">
+<meta name="twitter:title" content="SpringBoot 项目开发流程">
+<meta name="twitter:description" content="项目开发流程 数据库建库/建表,设计字段,字段数据类型以及约束,设置编码编码集 创建实体类,实现序列化接口,实体类中的属性与数据库字段相对应,提供get/set方法 连接数据库,编写配置文件 Dao层(持久层):编写接口和对应的配置文件,在接口中声明抽象方法,通过&amp;lt;mapper&amp;gt;标签的namespace属性指定对应关系,增删改查分别用&amp;lt;insert&amp;gt;,&amp;lt;delete&amp;">
   
     <link rel="alternative" href="/atom.xml" title="javacse" type="application/atom+xml">
   
@@ -219,41 +224,156 @@
               class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-项目开发流程" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2019" class="archive-year">2019</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/2019/12/18/项目开发流程/" class="archive-article-date">
-        <time datetime="2019-12-17T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-12-18</time>
-</a>
-
-        </div>
-    	 
+      <header class="article-header">
   
-    <h1 itemprop="name">
-	
-	  <a class="archive-article-title" href="/2019/12/18/项目开发流程/" target="_blank">SpringBoot 项目开发流程</a>
   
+    <h1 class="article-title" itemprop="name">
+      SpringBoot 项目开发流程
     </h1>
   
 
 
-        <div class="article-info info-on-right">
-          
+  
+  
+        
+        <span id="busuanzi_container_page_pv" style='display:none' class="archive-article-date">
+              <i class="icon-smile icon"></i> 阅读数：<span id="busuanzi_value_page_pv"></span>次
+        </span>
+
+<a href="/2019/12/18/项目开发流程/" class="archive-article-date">
+        <time datetime="2019-12-17T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-12-18</time>
+</a>
+
+  
+  
+    
+<div style="margin-top:10px;">
+  <span class="post-time">
+    <span class="post-meta-item-icon">
+      <!-- fonts.scss -->
+      <!-- 百度字体平台:http://fontstore.baidu.com/static/editor/index.html -->
+      <i class="icon-statistics"></i>
+      <span class="post-meta-item-text"> 字数统计:</span>
+      <span class="post-count">2.3k字</span>
+    </span>
+  </span>
+
+  <span class="post-time">
+    &nbsp; | &nbsp;
+    <span class="post-meta-item-icon">
+      <i class="icon-book icon"></i>
+      <span class="post-meta-item-text"> 阅读时长≈</span>
+      <span class="post-count">8分</span>
+    </span>
+  </span>
+</div>
+
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <h3 id="项目开发流程"><a href="#项目开发流程" class="headerlink" title="项目开发流程"></a>项目开发流程</h3><ol>
+<li>数据库建库/建表,设计字段,字段数据类型以及约束,设置编码编码集</li>
+<li>创建实体类,实现序列化接口,实体类中的属性与数据库字段相对应,提供get/set方法</li>
+<li>连接数据库,编写配置文件</li>
+<li>Dao层(持久层):编写接口和对应的配置文件,在接口中声明抽象方法,通过<code>&lt;mapper&gt;</code>标签的<code>namespace</code>属性指定对应关系,增删改查分别用<code>&lt;insert&gt;</code>,<code>&lt;delete&gt;</code>,<code>&lt;update&gt;</code>,<code>&lt;select&gt;</code>,四个标签编写,通过这四个标签的id属性指定对应的方法,<code>resultMap</code>标签避免数据库字段和实体类名称不一致的错误</li>
+<li>service层(业务层):主要实现业务逻辑,编写接口和实现类,在接口中声明抽象方法,并在实现类上添加<code>@service</code>注解.调用Dao层方法,使用<code>Autowired</code>注解进行自动装配,获取Dao层对象,自定义异常类</li>
+<li>Controller(控制器层):主要用来处理请求路径和对应方法之间的关系,请求处理完之后返回适当的对象.类上使用<code>@RestController</code>和<code>RequestMapping</code>注解声明,方法上使用<code>@RequestMapping</code>/<code>@GetMapping</code>/<code>@PostMapping</code>,使用<code>@Autowired</code>注解进行自动装配,获取service层对象,调用service层的方法</li>
+<li>页面:使用的是<code>bootstrap</code>/<code>jQuery</code>框架,使用<code>Ajax</code>技术实现异步传输,在不刷新页面的情况下完成数据的处理,使用<code>json</code>格式进行传输.</li>
+</ol>
+<hr>
+<h3 id="注册模块开发流程"><a href="#注册模块开发流程" class="headerlink" title="注册模块开发流程"></a>注册模块开发流程</h3><ul>
+<li>创建用户数据表,设计用户数据表,设计字段的数据类型以及约束</li>
+<li>创建用户的实体类,实体类中的属性和数据库字段名相对应,提供对应的get/set方法/toString方法</li>
+<li>使用Mybatis框架连接数据库,需要在SpringBoot的<code>application.properties</code>配置文件中配置连接</li>
+<li>持久层编写UserMapper接口和UserMapper.xml配置文件,在UserMapper接口中编写抽象方法,在对应的UserMapper.xml文件中编写Sql语句使用<code>&lt;Mapper&gt;</code>标签的namespace属性指定对应关系,注册操作需要两个操作数据库的SQL语句一个是查询,另一个是插入,两语句分别用<code>&lt;select&gt;</code>标签和<code>&lt;insert&gt;</code>标签,在标签内使用id属性指定对应的抽象方法,因为设计数据库时用户数据字段与要封装数据的实体类的属性有差异,还需要单独配置<code>&lt;reaultMap&gt;</code>标签来匹配对应关系.</li>
+<li>业务层编写UserService接口,接口中编写注册的抽象方法,创建业务层接口的实现类来实现注册业务,在注册业务中先创建持久层对象,使用<code>@AutoWired</code>注解来实现自动装配,然后重写接口中的抽象方法,逻辑实现为:当用户点击注册按钮时,先查询数据库中是否有重复的用户名,如果已有注册用户则抛出异常,进行插入数据操作,在插入数据之还需要对用户输入的密码进行加盐加密,对密码进行加盐操作用的是生成UUID类中的UUIDRandom的方法来生成盐值,加密方式使用MD5的DigestUtils的getDigestUtilsAsHex方法进行盐值+密码+盐值的方式进行加密,最后把加密的密码和盐值一并存储到数据库当中.</li>
+<li>控制器层编写用户请求路径映射的方法,使用<code>RequestMapping</code>注解来实现路径映射,在控制器层创建业务层对象,使用<code>@AutoWired</code>注解来实现自动装配,在编写对应的方法,考虑编写方法的返回值类型时使用了Json,单独封装了一个Json工具类来实现数据的封装,用于返回数据,在方法中调用<code>Service</code>层的方法来实现注册逻辑,最后响应客户端返回一个Json对象.</li>
+<li>客户端:使用JQuery框架和Ajax技术来实现用户的注册请求的表单数据提交,因为正常提交from表单是使用浏览器的主线程来提交数据,如果都用主线程来提交数据的话会刷新整个页面重复请求,使用Ajax技术解决这个问题,可以实现页面异步请求,将服务器所需要的数据提交到服务器,在页面中注册按钮添加点击事件中调用Ajax方法,方法参数传入json对象,对象中声明url属性来配置注册的请求路径,data属性来获取页面得到的值,配置type属性来设置请求方式一般涉及到隐私信息设置为post请求,配置dataType为json类型,配置success属性 设置回调函数,当客户端请求服务器,服务器处理请求成功后响应客户端200状态码,客户端得到200状态码后执行回调函数中的内容,解析json对象中的内容显示给客户端.</li>
+</ul>
+<hr>
+<h3 id="登录模块开发"><a href="#登录模块开发" class="headerlink" title="登录模块开发"></a>登录模块开发</h3><ul>
+<li><p>创建用户数据表,设计用户数据表,设计字段的数据类型以及约束</p>
+</li>
+<li><p>创建用户的实体类,实体类中的属性和数据库字段名相对应,提供对应的get/set方法/toString方法</p>
+</li>
+<li><p>使用Mybatis框架连接数据库,需要在SpringBoot的<code>application.properties</code>配置文件中配置连接</p>
+</li>
+<li><p>持久层编写UserMapper接口和UserMapper.xml配置文件,在UserMapper接口中编写抽象方法,在对应的UserMapper.xml文件中编写Sql语句使用<code>&lt;Mapper&gt;</code>标签的namespace属性指定对应关系,登录操作需要操作数据库的SQL语句是一个查询操作,语用<code>&lt;select&gt;</code>标签,在标签内使用id属性指定对应的抽象方法,因为设计数据库时用户数据字段与要封装数据的实体类的属性有差异,还需要单独配置<code>&lt;reaultMap&gt;</code>标签来匹配对应关系.</p>
+</li>
+<li><p>业务层编写UserService接口,接口中编写注册的抽象方法,创建业务层接口的实现类来实现登录业务,在登录业务中先创建持久层对象,使用<code>@AutoWired</code>注解来实现自动装配,然后重写接口中的抽象方法,逻辑实现为:当用户点击登录按钮时, 根据用户名进行查询用户所有信息,当查询的的用户信息为null时证明用户不存在,抛出用户不存在异常,也可以让用户去注册,反之如果用户存在,判断密码是否相同,因为密码注册的时候存入的是加密后的数据,需要把用户输入的密码进二次加密,与数据库中加密的密码进行对比,如果对比不一致则抛出密码错误异常,如果一致进行下一步操作,从查询的的对象中获取用户的id,username和头像信息存入一个新对象中,方便登录后的用户信息的显示</p>
+</li>
+<li><p>控制器层编写用户请求路径映射的方法,使用<code>RequestMapping</code>注解来实现路径映射,在控制器层创建业务层对象,使用<code>@AutoWired</code>注解来实现自动装配,在编写对应的方法,考虑编写方法的返回值类型时使用了Json,单独封装了一个Json工具类来实现数据的封装,用于返回数据,应为登录成功后需要服务器返回客户端一些数据,返回的Json数据类型为一个User类型的数据,在方法中调用<code>Service</code>层的方法来实现登录逻辑,登录时还需要让服务器知道是哪一个用户登陆上来的,使用session来存储用户的登录信息来实现,在登录的同时保存用户的id和username.</p>
+</li>
+<li><p>客户端:使用JQuery框架和Ajax技术来实现用户的注册请求的表单数据提交,因为正常提交from表单是使用浏览器的主线程来提交数据,如果都用主线程来提交数据的话会刷新整个页面重复请求,使用Ajax技术解决这个问题,可以实现页面异步请求,将服务器所需要的数据提交到服务器,在页面中登录按钮添加点击事件中调用Ajax方法,方法参数传入json对象,对象中声明url属性来配置注册的请求路径,data属性来获取页面得到的值,配置type属性来设置请求方式一般涉及到隐私信息设置为post请求,配置dataType为json类型,配置success属性 设置回调函数,当客户端请求服务器,服务器处理请求成功后响应客户端200状态码,客户端得到200状态码后执行回调函数中的内容,解析json对象中的内容显示给客户端.</p>
+</li>
+</ul>
+<hr>
+<h3 id="用户头像管理模块开发—未完待续"><a href="#用户头像管理模块开发—未完待续" class="headerlink" title="用户头像管理模块开发—未完待续"></a>用户头像管理模块开发—未完待续</h3>
+    
+
+    
+    <div class="page-reward">
+      <a href="javascript:void(0);" class="page-reward-btn tooltip-top" target="_self">
+        <div class="tooltip tooltip-east">
+          <span class="tooltip-item">
+            赏
+          </span>
+          <span class="tooltip-content">
+            <span class="tooltip-text">
+              <span class="tooltip-inner">
+                <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i
+                    class="icon icon-quo-right"></i></p>
+                <div class="reward-box">
+                  
+                  <div class="reward-box-item">
+                    <img class="reward-img" src="/assets/zhifubao.jpeg">
+                    <span class="reward-type">支付宝</span>
+                  </div>
+                  
+                  
+                  <div class="reward-box-item">
+                    <img class="reward-img" src="/assets/wexin.jpeg">
+                    <span class="reward-type">微信</span>
+                  </div>
+                  
+                </div>
+              </span>
+            </span>
+          </span>
+        </div>
+      </a>
+    </div>
+    
+
+    
+    <div class="declare"> 
+      <ul class="post-copyright">
+        <li>
+          <strong>本文作者：</strong>
+          Javacse
+        </li>
+        <li>
+          <strong>本文链接：</strong>
+          <a href="http://javacse.top/2019/12/18/项目开发流程/" title="SpringBoot 项目开发流程" target="_blank">http://javacse.top/2019/12/18/项目开发流程/</a>
+        </li>
+        <li>
+          <strong>版权声明： </strong>
+          本博客所有文章除特别声明外，均采用 <a href="https://www.apache.org/licenses/LICENSE-2.0.html" rel="external nofollow" target="_blank">Apache License 2.0</a> 许可协议。转载请注明出处！
+        </li>
+      </ul>
+    </div>
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -265,266 +385,165 @@
 		</ul>
 	</div>
 
-          
+    
 
+    
+
+    
+    
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <!-- <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a> -->
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+     <!-- <img src="//pan.baidu.com/share/qrcode?url=http://javacse.top/2019/12/18/项目开发流程/" alt="微信分享二维码"> -->
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+
+    
+    <div class="clearfix"></div>
+  </div>
   </div>
 </article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/2019/11/11/Window下使用Hexo搭建博客/" class="archive-article-date">
-        <time datetime="2019-11-10T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-11</time>
-</a>
 
+
+<nav id="article-nav">
+  
+  
+    <a href="/2019/11/11/Window下使用Hexo搭建博客/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Window下使用Hexo搭建博客</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
-  
-    <h1 itemprop="name">
-	
-	  <a class="archive-article-title" href="/2019/11/11/Window下使用Hexo搭建博客/" target="_blank">Window下使用Hexo搭建博客</a>
-  
-    </h1>
-  
-
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Window下搭建 Hexo 博客</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
+        
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#项目开发流程"><span class="toc-number">1.</span> <span class="toc-text">项目开发流程</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#注册模块开发流程"><span class="toc-number">2.</span> <span class="toc-text">注册模块开发流程</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#登录模块开发"><span class="toc-number">3.</span> <span class="toc-text">登录模块开发</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#用户头像管理模块开发—未完待续"><span class="toc-number">4.</span> <span class="toc-text">用户头像管理模块开发—未完待续</span></a></li></ol>
+                    </div>
+                </span>
+            </div>
         </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
+        
+    </div>
+</aside>
+
+
+
+
+
+
+
+<section id="comments">
+  <div id="disqus_thread"></div>
+  <script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+    var disqus_shortname =
+    'true'; // required: replace example with your forum shortname
+
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function () {
+      var dsq = document.createElement('script');
+      dsq.type = 'text/javascript';
+      dsq.async = true;
+      dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+
+  </script>
+  <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by
+      Disqus.</a></noscript>
+</section>
+
+
+
+
+  <div id="giteement-ctn"></div>
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/2019/11/08/JavaScript/" class="archive-article-date">
-        <time datetime="2019-11-07T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-08</time>
-</a>
-
-        </div>
-    	 
+    <link rel="stylesheet" href="/lib/default.css">
+    <script src="/lib/giteement.browser.js"></script>
   
-    <h1 itemprop="name">
-	
-	  <a class="archive-article-title" href="/2019/11/08/JavaScript/" target="_blank">JavaScript</a>
-  
-    </h1>
-  
+  <script>
+  <!-- id: "SpringBoot 项目开发流程" -->
+  var giteement = new Giteement({
+    id: '20191218000000',
+    owner: 'guan_hui_min',
+    repo: 'guanhuinin',
+    backcall_uri: 'http://javacse.top/',
+    oauth_uri: 'https://cors-anywhere.herokuapp.com/https://gitee.com/oauth/token',
+    oauth: {
+      client_id: '',
+      client_secret: ''
+    },
+  })
+  giteement.render('giteement-ctn')
+  </script>
 
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">JavaScript</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/2019/10/27/2019-10-27-每日Java必备算法(一)/" class="archive-article-date">
-        <time datetime="2019-10-26T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-27</time>
-</a>
-
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-	
-	  <a class="archive-article-title" href="/2019/10/27/2019-10-27-每日Java必备算法(一)/" target="_blank">每日Java必备算法(一)</a>
-  
-    </h1>
-  
 
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">算法</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/2019/10/25/Web/" class="archive-article-date">
-        <time datetime="2019-10-24T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-25</time>
-</a>
-
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-	
-	  <a class="archive-article-title" href="/2019/10/25/Web/" target="_blank">Web</a>
-  
-    </h1>
-  
 
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">前端</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/2019/10/16/使用hexo搭建自己的专属博客网站/" class="archive-article-date">
-        <time datetime="2019-10-16T13:04:00.703Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-16</time>
-</a>
-
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-	
-	  <a class="archive-article-title" href="/2019/10/16/使用hexo搭建自己的专属博客网站/" target="_blank">使用hexo搭建自己的专属博客网站</a>
-  
-    </h1>
-  
-
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">hexo 博客</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/2019/10/12/java实现聊天室的副本/" class="archive-article-date">
-        <time datetime="2019-10-12T15:52:57.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-12</time>
-</a>
-
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-	
-	  <a class="archive-article-title" href="/2019/10/12/java实现聊天室的副本/" target="_blank">java实现聊天室</a>
-  
-    </h1>
-  
-
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-    
 
 
           </div>
@@ -565,8 +584,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: true,
