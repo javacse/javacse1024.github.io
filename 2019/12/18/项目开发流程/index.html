@@ -10,18 +10,18 @@
   <meta name="generator" content="hexo-theme-yilia-plus">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
-  <meta name="description" content="项目开发流程 数据库建库/建表,设计字段,字段数据类型以及约束,设置编码编码集 创建实体类,实现序列化接口,实体类中的属性与数据库字段相对应,提供get/set方法 连接数据库,编写配置文件 Dao层(持久层):编写接口和对应的配置文件,在接口中声明抽象方法,通过&amp;lt;mapper&amp;gt;标签的namespace属性指定对应关系,增删改查分别用&amp;lt;insert&amp;gt;,&amp;lt;delete&amp;">
+  <meta name="description" content="项目开发流程 数据库建库/建表,设计字段,字段数据类型以及约束,设置编码编码集 创建实体类,实现序列化接口,实体类中的属性与数据库字段相对应,提供get/set方法 连接数据库,编写配置文件">
 <meta name="keywords" content="SpringBoot">
 <meta property="og:type" content="article">
 <meta property="og:title" content="SpringBoot 项目开发流程">
 <meta property="og:url" content="http://javacse.top/2019/12/18/项目开发流程/index.html">
 <meta property="og:site_name" content="javacse">
-<meta property="og:description" content="项目开发流程 数据库建库/建表,设计字段,字段数据类型以及约束,设置编码编码集 创建实体类,实现序列化接口,实体类中的属性与数据库字段相对应,提供get/set方法 连接数据库,编写配置文件 Dao层(持久层):编写接口和对应的配置文件,在接口中声明抽象方法,通过&amp;lt;mapper&amp;gt;标签的namespace属性指定对应关系,增删改查分别用&amp;lt;insert&amp;gt;,&amp;lt;delete&amp;">
+<meta property="og:description" content="项目开发流程 数据库建库/建表,设计字段,字段数据类型以及约束,设置编码编码集 创建实体类,实现序列化接口,实体类中的属性与数据库字段相对应,提供get/set方法 连接数据库,编写配置文件">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2019-12-18T14:53:56.661Z">
+<meta property="og:updated_time" content="2019-12-18T15:09:58.685Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="SpringBoot 项目开发流程">
-<meta name="twitter:description" content="项目开发流程 数据库建库/建表,设计字段,字段数据类型以及约束,设置编码编码集 创建实体类,实现序列化接口,实体类中的属性与数据库字段相对应,提供get/set方法 连接数据库,编写配置文件 Dao层(持久层):编写接口和对应的配置文件,在接口中声明抽象方法,通过&amp;lt;mapper&amp;gt;标签的namespace属性指定对应关系,增删改查分别用&amp;lt;insert&amp;gt;,&amp;lt;delete&amp;">
+<meta name="twitter:description" content="项目开发流程 数据库建库/建表,设计字段,字段数据类型以及约束,设置编码编码集 创建实体类,实现序列化接口,实体类中的属性与数据库字段相对应,提供get/set方法 连接数据库,编写配置文件">
   
     <link rel="alternative" href="/atom.xml" title="javacse" type="application/atom+xml">
   
@@ -281,6 +281,10 @@
 <li>数据库建库/建表,设计字段,字段数据类型以及约束,设置编码编码集</li>
 <li>创建实体类,实现序列化接口,实体类中的属性与数据库字段相对应,提供get/set方法</li>
 <li>连接数据库,编写配置文件</li>
+</ol>
+<a id="more"></a>
+
+<ol>
 <li>Dao层(持久层):编写接口和对应的配置文件,在接口中声明抽象方法,通过<code>&lt;mapper&gt;</code>标签的<code>namespace</code>属性指定对应关系,增删改查分别用<code>&lt;insert&gt;</code>,<code>&lt;delete&gt;</code>,<code>&lt;update&gt;</code>,<code>&lt;select&gt;</code>,四个标签编写,通过这四个标签的id属性指定对应的方法,<code>resultMap</code>标签避免数据库字段和实体类名称不一致的错误</li>
 <li>service层(业务层):主要实现业务逻辑,编写接口和实现类,在接口中声明抽象方法,并在实现类上添加<code>@service</code>注解.调用Dao层方法,使用<code>Autowired</code>注解进行自动装配,获取Dao层对象,自定义异常类</li>
 <li>Controller(控制器层):主要用来处理请求路径和对应方法之间的关系,请求处理完之后返回适当的对象.类上使用<code>@RestController</code>和<code>RequestMapping</code>注解声明,方法上使用<code>@RequestMapping</code>/<code>@GetMapping</code>/<code>@PostMapping</code>,使用<code>@Autowired</code>注解进行自动装配,获取service层对象,调用service层的方法</li>

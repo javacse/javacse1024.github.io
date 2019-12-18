@@ -265,40 +265,10 @@
 <li>数据库建库/建表,设计字段,字段数据类型以及约束,设置编码编码集</li>
 <li>创建实体类,实现序列化接口,实体类中的属性与数据库字段相对应,提供get/set方法</li>
 <li>连接数据库,编写配置文件</li>
-<li>Dao层(持久层):编写接口和对应的配置文件,在接口中声明抽象方法,通过<code>&lt;mapper&gt;</code>标签的<code>namespace</code>属性指定对应关系,增删改查分别用<code>&lt;insert&gt;</code>,<code>&lt;delete&gt;</code>,<code>&lt;update&gt;</code>,<code>&lt;select&gt;</code>,四个标签编写,通过这四个标签的id属性指定对应的方法,<code>resultMap</code>标签避免数据库字段和实体类名称不一致的错误</li>
-<li>service层(业务层):主要实现业务逻辑,编写接口和实现类,在接口中声明抽象方法,并在实现类上添加<code>@service</code>注解.调用Dao层方法,使用<code>Autowired</code>注解进行自动装配,获取Dao层对象,自定义异常类</li>
-<li>Controller(控制器层):主要用来处理请求路径和对应方法之间的关系,请求处理完之后返回适当的对象.类上使用<code>@RestController</code>和<code>RequestMapping</code>注解声明,方法上使用<code>@RequestMapping</code>/<code>@GetMapping</code>/<code>@PostMapping</code>,使用<code>@Autowired</code>注解进行自动装配,获取service层对象,调用service层的方法</li>
-<li>页面:使用的是<code>bootstrap</code>/<code>jQuery</code>框架,使用<code>Ajax</code>技术实现异步传输,在不刷新页面的情况下完成数据的处理,使用<code>json</code>格式进行传输.</li>
 </ol>
-<hr>
-<h3 id="注册模块开发流程"><a href="#注册模块开发流程" class="headerlink" title="注册模块开发流程"></a>注册模块开发流程</h3><ul>
-<li>创建用户数据表,设计用户数据表,设计字段的数据类型以及约束</li>
-<li>创建用户的实体类,实体类中的属性和数据库字段名相对应,提供对应的get/set方法/toString方法</li>
-<li>使用Mybatis框架连接数据库,需要在SpringBoot的<code>application.properties</code>配置文件中配置连接</li>
-<li>持久层编写UserMapper接口和UserMapper.xml配置文件,在UserMapper接口中编写抽象方法,在对应的UserMapper.xml文件中编写Sql语句使用<code>&lt;Mapper&gt;</code>标签的namespace属性指定对应关系,注册操作需要两个操作数据库的SQL语句一个是查询,另一个是插入,两语句分别用<code>&lt;select&gt;</code>标签和<code>&lt;insert&gt;</code>标签,在标签内使用id属性指定对应的抽象方法,因为设计数据库时用户数据字段与要封装数据的实体类的属性有差异,还需要单独配置<code>&lt;reaultMap&gt;</code>标签来匹配对应关系.</li>
-<li>业务层编写UserService接口,接口中编写注册的抽象方法,创建业务层接口的实现类来实现注册业务,在注册业务中先创建持久层对象,使用<code>@AutoWired</code>注解来实现自动装配,然后重写接口中的抽象方法,逻辑实现为:当用户点击注册按钮时,先查询数据库中是否有重复的用户名,如果已有注册用户则抛出异常,进行插入数据操作,在插入数据之还需要对用户输入的密码进行加盐加密,对密码进行加盐操作用的是生成UUID类中的UUIDRandom的方法来生成盐值,加密方式使用MD5的DigestUtils的getDigestUtilsAsHex方法进行盐值+密码+盐值的方式进行加密,最后把加密的密码和盐值一并存储到数据库当中.</li>
-<li>控制器层编写用户请求路径映射的方法,使用<code>RequestMapping</code>注解来实现路径映射,在控制器层创建业务层对象,使用<code>@AutoWired</code>注解来实现自动装配,在编写对应的方法,考虑编写方法的返回值类型时使用了Json,单独封装了一个Json工具类来实现数据的封装,用于返回数据,在方法中调用<code>Service</code>层的方法来实现注册逻辑,最后响应客户端返回一个Json对象.</li>
-<li>客户端:使用JQuery框架和Ajax技术来实现用户的注册请求的表单数据提交,因为正常提交from表单是使用浏览器的主线程来提交数据,如果都用主线程来提交数据的话会刷新整个页面重复请求,使用Ajax技术解决这个问题,可以实现页面异步请求,将服务器所需要的数据提交到服务器,在页面中注册按钮添加点击事件中调用Ajax方法,方法参数传入json对象,对象中声明url属性来配置注册的请求路径,data属性来获取页面得到的值,配置type属性来设置请求方式一般涉及到隐私信息设置为post请求,配置dataType为json类型,配置success属性 设置回调函数,当客户端请求服务器,服务器处理请求成功后响应客户端200状态码,客户端得到200状态码后执行回调函数中的内容,解析json对象中的内容显示给客户端.</li>
-</ul>
-<hr>
-<h3 id="登录模块开发"><a href="#登录模块开发" class="headerlink" title="登录模块开发"></a>登录模块开发</h3><ul>
-<li><p>创建用户数据表,设计用户数据表,设计字段的数据类型以及约束</p>
-</li>
-<li><p>创建用户的实体类,实体类中的属性和数据库字段名相对应,提供对应的get/set方法/toString方法</p>
-</li>
-<li><p>使用Mybatis框架连接数据库,需要在SpringBoot的<code>application.properties</code>配置文件中配置连接</p>
-</li>
-<li><p>持久层编写UserMapper接口和UserMapper.xml配置文件,在UserMapper接口中编写抽象方法,在对应的UserMapper.xml文件中编写Sql语句使用<code>&lt;Mapper&gt;</code>标签的namespace属性指定对应关系,登录操作需要操作数据库的SQL语句是一个查询操作,语用<code>&lt;select&gt;</code>标签,在标签内使用id属性指定对应的抽象方法,因为设计数据库时用户数据字段与要封装数据的实体类的属性有差异,还需要单独配置<code>&lt;reaultMap&gt;</code>标签来匹配对应关系.</p>
-</li>
-<li><p>业务层编写UserService接口,接口中编写注册的抽象方法,创建业务层接口的实现类来实现登录业务,在登录业务中先创建持久层对象,使用<code>@AutoWired</code>注解来实现自动装配,然后重写接口中的抽象方法,逻辑实现为:当用户点击登录按钮时, 根据用户名进行查询用户所有信息,当查询的的用户信息为null时证明用户不存在,抛出用户不存在异常,也可以让用户去注册,反之如果用户存在,判断密码是否相同,因为密码注册的时候存入的是加密后的数据,需要把用户输入的密码进二次加密,与数据库中加密的密码进行对比,如果对比不一致则抛出密码错误异常,如果一致进行下一步操作,从查询的的对象中获取用户的id,username和头像信息存入一个新对象中,方便登录后的用户信息的显示</p>
-</li>
-<li><p>控制器层编写用户请求路径映射的方法,使用<code>RequestMapping</code>注解来实现路径映射,在控制器层创建业务层对象,使用<code>@AutoWired</code>注解来实现自动装配,在编写对应的方法,考虑编写方法的返回值类型时使用了Json,单独封装了一个Json工具类来实现数据的封装,用于返回数据,应为登录成功后需要服务器返回客户端一些数据,返回的Json数据类型为一个User类型的数据,在方法中调用<code>Service</code>层的方法来实现登录逻辑,登录时还需要让服务器知道是哪一个用户登陆上来的,使用session来存储用户的登录信息来实现,在登录的同时保存用户的id和username.</p>
-</li>
-<li><p>客户端:使用JQuery框架和Ajax技术来实现用户的注册请求的表单数据提交,因为正常提交from表单是使用浏览器的主线程来提交数据,如果都用主线程来提交数据的话会刷新整个页面重复请求,使用Ajax技术解决这个问题,可以实现页面异步请求,将服务器所需要的数据提交到服务器,在页面中登录按钮添加点击事件中调用Ajax方法,方法参数传入json对象,对象中声明url属性来配置注册的请求路径,data属性来获取页面得到的值,配置type属性来设置请求方式一般涉及到隐私信息设置为post请求,配置dataType为json类型,配置success属性 设置回调函数,当客户端请求服务器,服务器处理请求成功后响应客户端200状态码,客户端得到200状态码后执行回调函数中的内容,解析json对象中的内容显示给客户端.</p>
-</li>
-</ul>
-<hr>
-<h3 id="用户头像管理模块开发—未完待续"><a href="#用户头像管理模块开发—未完待续" class="headerlink" title="用户头像管理模块开发—未完待续"></a>用户头像管理模块开发—未完待续</h3>
+    
+    <a class="article-more-a" href="/2019/12/18/项目开发流程/#more">more >></a>
+    
     
 
     
